@@ -4,6 +4,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RouterOutlet, provideRouter, Routes } from '@angular/router';
 import { HomeComponent } from './app/pages/home/home.component';
 import { ProgramComponent } from './app/pages/program/program.component';
+import { SignupComponent } from './app/pages/signup/signup.component';
+import { LoginComponent } from './app/pages/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -24,9 +26,11 @@ export class App {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'program/:id', component: ProgramComponent },
-  // ... other routes ...
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'program/:name', component: ProgramComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 bootstrapApplication(App, {
