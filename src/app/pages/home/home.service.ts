@@ -29,7 +29,7 @@ const TEST_DATA: Program[] = [
   providedIn: 'root'
 })
 export class HomeService {
-  programs$ = signal(TEST_DATA);
+  programs$ = signal<Program[]>(TEST_DATA);
 
   constructor() { }
 

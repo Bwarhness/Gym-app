@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { HomeService } from './home.service';
 import { ProgramListComponent } from '../../components/program-list/program-list.component';
+import { ProgramService } from '../../services/program.service';
+import { Program } from '../../models/program';
 @Component({
     selector: 'app-home',
     standalone: true,
@@ -18,6 +20,6 @@ import { ProgramListComponent } from '../../components/program-list/program-list
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-    constructor(public homeService:HomeService) {}
-    programs$ = this.homeService.programs$;
- }
+    constructor(private programService: ProgramService) {}
+    programs$ = this.programService.programs$;
+}

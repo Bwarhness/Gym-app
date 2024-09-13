@@ -1,12 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-interface Program {
-  image: string;
-  name: string;
-  level: string;
-  smallDescription: string;
-}
+import { Program } from '../../models/program';
 
 @Component({
   selector: 'app-program-list',
