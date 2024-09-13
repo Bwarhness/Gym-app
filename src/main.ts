@@ -6,6 +6,8 @@ import { HomeComponent } from './app/pages/home/home.component';
 import { ProgramComponent } from './app/pages/program/program.component';
 import { SignupComponent } from './app/pages/signup/signup.component';
 import { LoginComponent } from './app/pages/login/login.component';
+import { FirstTimeUserComponent } from './app/pages/first-time-user/first-time-user.component';
+import { ProgramService } from './app/services/program.service';
 
 @Component({
   selector: 'app-root',
@@ -31,11 +33,13 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'program/:name', component: ProgramComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'first-time-user', component: FirstTimeUserComponent },
 ];
 
 bootstrapApplication(App, {
   providers: [
     provideRouter(routes),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    ProgramService
   ]
 }).catch(err => console.error(err));

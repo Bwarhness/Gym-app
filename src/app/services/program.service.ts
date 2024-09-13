@@ -15,9 +15,8 @@ export interface Program {
   providedIn: 'root'
 })
 export class ProgramService {
-  private apiUrl = 'your-api-url'; // Replace with your actual API URL
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getProgramById(id: string): Observable<Program> {
     // For now, we'll return mock data
@@ -29,6 +28,19 @@ export class ProgramService {
       smallDescription: 'A brief description of the program',
       fullDescription: 'A more detailed description of the program...',
       curriculum: ['Module 1', 'Module 2', 'Module 3']
+    });
+  }
+
+  getRecommendedPrograms(goal: string, frequency: string): any[] {
+    // This is a mock implementation. In a real app, you'd likely fetch this data from an API
+    return [
+      { id: 1, name: 'Advanced Strength Training', description: 'High-intensity program focused on building strength and muscle mass.' },
+      { id: 2, name: 'Fat Loss Extreme', description: 'High-volume program designed for maximum calorie burn and fat loss.' },
+      { id: 3, name: 'Endurance Builder', description: 'Program focused on improving cardiovascular endurance and stamina.' },
+      // Add more programs as needed
+    ].filter(program => {
+      // Add logic to filter programs based on goal and frequency
+      return true; // This is a placeholder
     });
   }
 }
