@@ -4,7 +4,7 @@ import {MatCardModule} from '@angular/material/card';
 import { HomeService } from './home.service';
 import { ProgramListComponent } from '../../components/program-list/program-list.component';
 import { ProgramService } from '../../services/program.service';
-import { Program } from '../../models/program';
+import { Program } from '../../models/models';
 @Component({
     selector: 'app-home',
     standalone: true,

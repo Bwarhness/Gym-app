@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Program } from '../../models/program';
+import { Program } from '../../models/models';
 
 @Component({
   selector: 'app-program-list',

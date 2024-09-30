@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Program } from '../../models/program';
+import { Program } from '../../models/models';
 
 @Component({
   selector: 'app-program',

@@ -1,4 +1,4 @@
-import { Component, isDevMode } from '@angular/core';
+import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterOutlet, provideRouter, Routes } from '@angular/router';
@@ -8,7 +8,7 @@ import { SignupComponent } from './app/pages/signup/signup.component';
 import { LoginComponent } from './app/pages/login/login.component';
 import { FirstTimeUserComponent } from './app/pages/first-time-user/first-time-user.component';
 import { ProgramService } from './app/services/program.service';
-import { provideServiceWorker } from '@angular/service-worker';
+import { SessionComponent } from './app/pages/session/session.component';
 
 @Component({
   selector: 'app-root',
@@ -35,15 +35,14 @@ const routes: Routes = [
   { path: 'program/:name', component: ProgramComponent },
   { path: 'home', component: HomeComponent },
   { path: 'first-time-user', component: FirstTimeUserComponent },
+  { path: 'workout/:name', component: SessionComponent },
+  { path: 'workout/:name/:session', component: SessionComponent },
 ];
 
 bootstrapApplication(App, {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    ProgramService, provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          })
+    ProgramService,
   ]
 }).catch(err => console.error(err));

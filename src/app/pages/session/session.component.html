@@ -1,0 +1,27 @@
+<h1>Booty</h1>
+
+@defer {
+<ul>
+    @for (exercise of exercises$ ; track exercise.id) {
+    <li>
+        <h2>{{ exercise.name }}</h2>
+        <p>{{ exercise.description }}</p>
+        <p>{{ exercise.tempo }}</p>
+        <p>{{ exercise.tags }}</p>
+    </li>
+
+    <div class="sets">
+        @for (set of [].constructor(exercise.sets); track $index) {
+        <div class="set">
+            {{ exercise.reps }}
+        </div>
+        }
+    </div>
+    }
+
+</ul>
+} @loading {
+<p>Loading sessions...</p>
+} @error {
+<p>Error loading sessions. Please try again later.</p>
+}
