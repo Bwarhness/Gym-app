@@ -1,7 +1,9 @@
 import { Injectable, Signal, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Program, Session, SessionExercise } from '../models/models';
+import {Program} from '../models/program.model';
+import {ExerciseSession} from '../models/exercise.model';
+import {Session} from '../models/session.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +19,7 @@ export class ProgramService {
     ];
   }
 }
-export const MOCK_UPPER_EXERCISES: SessionExercise[] = [
+export const MOCK_UPPER_EXERCISES: ExerciseSession[] = [
   {
     id: 1,
     name: 'Bench Press',
@@ -41,7 +43,7 @@ export const MOCK_UPPER_EXERCISES: SessionExercise[] = [
     tempo: '3-2-1',
   },
 ]
-export const MOCK_BOOTY_EXERCISES: SessionExercise[] = [
+export const MOCK_BOOTY_EXERCISES: ExerciseSession[] = [
   {
     id: 1,
     name: 'Hip Thrust',
@@ -65,7 +67,7 @@ export const MOCK_BOOTY_EXERCISES: SessionExercise[] = [
     tempo: '3-2-1',
   },
 ]
-export const MOCK_LEGS_EXERCISES: SessionExercise[] = [
+export const MOCK_LEGS_EXERCISES: ExerciseSession[] = [
   {
     id: 1,
     name: 'Squat',
@@ -94,16 +96,34 @@ export const WORKOUT_SESSIONS: Session[] = [
     id: 1,
     name: 'Booty',
     exercises: MOCK_BOOTY_EXERCISES,
+    tags: [
+      {
+        id: 1,
+        name: 'Booty',
+      },
+    ],
   },
   {
     id: 2,
     name: 'Upper',
     exercises: MOCK_UPPER_EXERCISES,
+    tags: [
+      {
+        id: 1,
+        name: 'Upper',
+      }
+    ]
   },
   {
     id: 3,
     name: 'Legs',
     exercises: MOCK_LEGS_EXERCISES,
+    tags: [
+      {
+        id: 1,
+        name: 'Legs',
+      },
+    ]
   },
 
 ]
@@ -111,7 +131,6 @@ export const MOCK_LEGS_UPPER_BOOTY_PROGRAM: Program = {
   id: 1,
   name: 'Legs Upper Booty',
   image: 'https://example.com/legs-upper-booty.jpg',
-  level: 'Intermediate',
   smallDescription: 'A brief description of the program',
   fullDescription: 'A more detailed description of the program...',
   sessions: WORKOUT_SESSIONS,
