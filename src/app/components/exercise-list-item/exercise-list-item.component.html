@@ -1,0 +1,12 @@
+<div class="exercise-item" (click)="onExerciseClick()">
+  <img [src]="getImageUrl()" [alt]="exercise.name" class="exercise-image">
+  <div class="exercise-content">
+    <h3>{{ exercise.name }}</h3>
+    <p>{{ exercise.description }}</p>
+    <div class="tags">
+      <span *ngFor="let tag of exercise.tags" class="tag" (click)="onTagClick(tag, $event)">
+        {{ tag.name }}
+      </span>
+    </div>
+  </div>
+</div>

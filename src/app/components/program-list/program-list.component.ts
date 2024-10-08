@@ -1,9 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Program } from '../../models/program.model';
 
 @Component({
     selector: 'app-program-list',
+    standalone: true,
     imports: [CommonModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
@@ -11,7 +13,6 @@ import { Router } from '@angular/router';
       <div *ngFor="let program of programs" class="program-card" (click)="navigateToProgram(program.name)">
         <img [src]="program.image" [alt]="program.name">
         <h3>{{ program.name }}</h3>
-        <p>Level: {{ program.level }}</p>
         <p>{{ program.smallDescription }}</p>
       </div>
     </div>

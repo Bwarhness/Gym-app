@@ -5,6 +5,7 @@ import { SessionService } from '../../services/session.service';
 
 @Component({
     selector: 'app-session',
+    standalone: true,
     imports: [CommonModule],
     templateUrl: './session.component.html',
     styles: [

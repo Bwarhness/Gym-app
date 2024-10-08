@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Program } from '../../models/program.model';
 
 @Component({
     selector: 'app-program',
+    standalone: true,
     imports: [CommonModule, RouterModule],
     templateUrl: './program.component.html',
     styleUrls: ['./program.component.scss']

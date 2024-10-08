@@ -1,0 +1,36 @@
+<div class="exercise-list">
+  <div class="filter-container">
+    <input
+      type="text"
+      [ngModel]="searchTerm()"
+      (ngModelChange)="updateSearchTerm($event)"
+      placeholder="Search exercises..."
+      class="search-input"
+    >
+    <div class="chips">
+      @for (tag of tagChips(); track tag) {
+        <div class="chip tag-chip">
+          {{ tag.name }}
+          <button (click)="removeChip(tag)">×</button>
+        </div>
+      }
+    </div>
+  </div>
+  
+  @defer {
+    @if (filteredExercises().length > 0) {
+      <app-exercise-list-item
+        *ngFor="let exercise of filteredExercises()"
+        [exercise]="exercise"
+        (tagClick)="addTagChip($event)"
+        (exerciseClick)="onExerciseClick($event)"
+      ></app-exercise-list-item>
+    } @else {
+      <p class="no-exercises">No exercises found matching your filters.</p>
+    }
+  } @placeholder {
+    <p>Loading exercises...</p>
+  } @error {
+    <p>Error loading exercises. Please try again.</p>
+  }
+</div>
