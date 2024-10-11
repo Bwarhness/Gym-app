@@ -4,11 +4,14 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/exercise.model';
+import {TagsComponent} from '../../components/tags/tags.component';
 
 @Component({
   selector: 'app-exercise-editor',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, 
+    TagsComponent,
+  ],
   templateUrl: './exercise-editor.component.html',
   styleUrls: ['./exercise-editor.component.scss']
 })

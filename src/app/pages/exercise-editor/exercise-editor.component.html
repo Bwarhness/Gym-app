@@ -1,6 +1,16 @@
-<div class="exercise-editor-container">
-  <h2>{{ isEditMode ? 'Edit Exercise' : 'Create New Exercise' }}</h2>
-  <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
-    <!-- Form content remains the same -->
-  </form>
-</div>
+<form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
+  <aside>
+    <input formcontrolName="name" placeholder="Name">
+    <textarea formcontrolName="shortDescription" placeholder="Short Description"></textarea>
+    <app-tags [tags]="exerciseForm.get('tags')?.value"></app-tags>
+
+    <button (click)="isEditMode = !isEditMode">
+      {{ isEditMode ? 'Cancel' : 'Edit' }}
+    </button>
+  </aside>
+  <main>
+
+
+  </main>
+
+</form>

@@ -18,7 +18,7 @@ export interface ExerciseSessionInstance extends ExerciseSession {
   id: number;
 }
 export interface Set {
-  reps: number;
+  reps?: number;
   weight?: number;
   tempo?: string;
 }

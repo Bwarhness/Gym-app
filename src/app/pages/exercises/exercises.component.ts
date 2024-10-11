@@ -17,6 +17,6 @@ export class ExercisesComponent {
   constructor(private router: Router, private exerciseService: ExerciseService) {}
 
   onExerciseSelected(exercise: Exercise): void {
-    this.router.navigate(['/exercises/edit', exercise.id]);
+    this.router.navigate(['/exercises/', exercise.id]);
   }
 }
