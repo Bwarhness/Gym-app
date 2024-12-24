@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ProgramService } from '../../services/program.service';
 
 @Component({
-  selector: 'app-new-user-flow',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-new-user-flow',
+    imports: [CommonModule],
+    template: `
     @if (step === 1) {
       <div>
         <h2>Step 2: Your Fitness Goals</h2>
@@ -35,7 +34,7 @@ import { ProgramService } from '../../services/program.service';
       </div>
     }
   `,
-  styles: [`
+    styles: [`
     .program-card {
       border: 1px solid #ccc;
       padding: 15px;

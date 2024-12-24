@@ -4,12 +4,11 @@ import { Session } from '../../models/models';
 import { SessionService } from '../../services/session.service';
 
 @Component({
-  selector: 'app-session',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './session.component.html',
-  styles: [
-    `
+    selector: 'app-session',
+    imports: [CommonModule],
+    templateUrl: './session.component.html',
+    styles: [
+        `
       :host {
         display: block;
       }
@@ -28,7 +27,7 @@ import { SessionService } from '../../services/session.service';
         background-color: red;
       }
     `,
-  ],
+    ]
 })
 export class SessionComponent {
   exercises$ = this.sessionService.getExercises();

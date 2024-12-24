@@ -11,18 +11,17 @@ import { ProgramService } from './app/services/program.service';
 import { SessionComponent } from './app/pages/session/session.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  styles: `
+    selector: 'app-root',
+    imports: [RouterOutlet],
+    styles: `
   :host {
     display: block;
     padding: 50px;
   }
   `,
-  template: `
+    template: `
   <router-outlet></router-outlet>
-  `,
+  `
 })
 export class App {
   name = 'Angular';

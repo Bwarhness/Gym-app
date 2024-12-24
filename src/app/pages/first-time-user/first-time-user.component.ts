@@ -3,10 +3,9 @@ import { NewUserFlowComponent } from './new-user-flow.component';
 import { ExperiencedUserFlowComponent } from './experienced-user-flow.component';
 
 @Component({
-  selector: 'app-first-time-user',
-  standalone: true,
-  imports: [NewUserFlowComponent, ExperiencedUserFlowComponent],
-  template: `
+    selector: 'app-first-time-user',
+    imports: [NewUserFlowComponent, ExperiencedUserFlowComponent],
+    template: `
     <div class="container">
       <h1>Welcome, New User!</h1>
       
@@ -34,7 +33,7 @@ import { ExperiencedUserFlowComponent } from './experienced-user-flow.component'
       }
     </div>
   `,
-  styles: [`
+    styles: [`
     .container {
       max-width: 600px;
       margin: 0 auto;

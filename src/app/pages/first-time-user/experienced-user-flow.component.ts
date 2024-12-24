@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ProgramService } from '../../services/program.service';
 
 @Component({
-  selector: 'app-experienced-user-flow',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-experienced-user-flow',
+    imports: [CommonModule],
+    template: `
     <div class="experienced-flow">
       <h2>Experienced User Program Selection</h2>
       
@@ -35,7 +34,7 @@ import { ProgramService } from '../../services/program.service';
       }
     </div>
   `,
-  styles: [`
+    styles: [`
     .experienced-flow {
       margin-top: 20px;
     }

@@ -7,7 +7,6 @@ import { ProgramService } from '../../services/program.service';
 import { Program } from '../../models/models';
 @Component({
     selector: 'app-home',
-    standalone: true,
     imports: [
         CommonModule,
         MatCardModule,
@@ -17,7 +16,7 @@ import { Program } from '../../models/models';
     <app-program-list [programs]="programs$()"></app-program-list>
     `,
     styleUrl: './home.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
     constructor(private programService: ProgramService) {}

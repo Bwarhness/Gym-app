@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { Program } from '../../models/models';
 
 @Component({
-  selector: 'app-program-list',
-  standalone: true,
-  imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: 'app-program-list',
+    imports: [CommonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <div class="program-list">
       <div *ngFor="let program of programs" class="program-card" (click)="navigateToProgram(program.name)">
         <img [src]="program.image" [alt]="program.name">
@@ -18,7 +17,7 @@ import { Program } from '../../models/models';
       </div>
     </div>
   `,
-  styles: [`
+    styles: [`
     .program-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
