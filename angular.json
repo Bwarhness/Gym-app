@@ -50,7 +50,10 @@
               "buildTarget": "demo:build:production"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "hmr": true
+          }
         }
       },
       "prefix": "app",
@@ -58,7 +61,8 @@
       "root": "",
       "schematics": {
            "@schematics/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "standalone": true
     }
       },
       "sourceRoot": "src"

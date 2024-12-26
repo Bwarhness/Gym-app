@@ -1,15 +1,14 @@
 import { Injectable, Signal, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import {Program} from '../models/program.model';
-import {ExerciseSession} from '../models/exercise.model';
-import {Session} from '../models/session.model';
+import { SessionExercise} from '../../models/models';
+import {Session} from '../../models/models';
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramService {
 
-  programs$: Signal<Program[]> = signal<Program[]>([
+  programs$: Signal<any[]> = signal<any[]>([
     
   ]);
   constructor() {}
@@ -19,9 +18,9 @@ export class ProgramService {
     ];
   }
 }
-export const MOCK_UPPER_EXERCISES: ExerciseSession[] = [
+export const MOCK_UPPER_EXERCISES: SessionExercise[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Bench Press',
     description: 'Bench Press',
     image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -32,7 +31,7 @@ export const MOCK_UPPER_EXERCISES: ExerciseSession[] = [
     tempo: '3-2-1',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Pull Ups',
     description: 'Pull Ups',
     image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -43,9 +42,9 @@ export const MOCK_UPPER_EXERCISES: ExerciseSession[] = [
     tempo: '3-2-1',
   },
 ]
-export const MOCK_BOOTY_EXERCISES: ExerciseSession[] = [
+export const MOCK_BOOTY_EXERCISES: SessionExercise[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Hip Thrust',
     description: 'Hip Thrust',
     image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -56,7 +55,7 @@ export const MOCK_BOOTY_EXERCISES: ExerciseSession[] = [
     tempo: '3-2-1',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Glute Bridges',
     description: 'Glute Bridges',
     image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -67,9 +66,9 @@ export const MOCK_BOOTY_EXERCISES: ExerciseSession[] = [
     tempo: '3-2-1',
   },
 ]
-export const MOCK_LEGS_EXERCISES: ExerciseSession[] = [
+export const MOCK_LEGS_EXERCISES: SessionExercise[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Squat',
     description: 'Deadlift',
     image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -80,10 +79,9 @@ export const MOCK_LEGS_EXERCISES: ExerciseSession[] = [
     tempo: '3-2-1',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Deadlift',
     description: 'Deadlift',
-    image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
     video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     tags: [],
     sets: 3,
@@ -93,7 +91,7 @@ export const MOCK_LEGS_EXERCISES: ExerciseSession[] = [
 ]
 export const WORKOUT_SESSIONS: Session[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Booty',
     exercises: MOCK_BOOTY_EXERCISES,
     tags: [
@@ -104,7 +102,7 @@ export const WORKOUT_SESSIONS: Session[] = [
     ],
   },
   {
-    id: 2,
+    id: '2',
     name: 'Upper',
     exercises: MOCK_UPPER_EXERCISES,
     tags: [
@@ -115,7 +113,7 @@ export const WORKOUT_SESSIONS: Session[] = [
     ]
   },
   {
-    id: 3,
+    id: '3',
     name: 'Legs',
     exercises: MOCK_LEGS_EXERCISES,
     tags: [
@@ -127,8 +125,8 @@ export const WORKOUT_SESSIONS: Session[] = [
   },
 
 ]
-export const MOCK_LEGS_UPPER_BOOTY_PROGRAM: Program = {
-  id: 1,
+export const MOCK_LEGS_UPPER_BOOTY_PROGRAM: any = {
+  id: '1',
   name: 'Legs Upper Booty',
   image: 'https://example.com/legs-upper-booty.jpg',
   smallDescription: 'A brief description of the program',

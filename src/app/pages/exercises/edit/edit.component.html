@@ -1,0 +1,102 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Create/Edit Exercise</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()" class="form-container">
+        <!-- Name -->
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Exercise name" required>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Exercise description" rows="3"></textarea>
+        </mat-form-field>
+
+        <!-- Tags -->
+        <mat-form-field appearance="outline">
+          <mat-label>Tags</mat-label>
+          <mat-select formControlName="tags" multiple class="hidden-select">
+            @for (tag of availableTags; track tag.id) {
+              <mat-option [value]="tag">{{ tag.name }}</mat-option>
+            }
+          </mat-select>
+          <mat-chip-grid #chipGrid (click)="$event.stopPropagation()">
+            @for (tag of exerciseForm.get('tags')?.value || []; track tag.id) {
+              <mat-chip (removed)="removeTag(tag)" (click)="removeTag(tag); $event.stopPropagation()">
+                {{ tag.name }}
+              </mat-chip>
+            }
+          </mat-chip-grid>
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Save Exercise</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<style>
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.hidden-select {
+  position: relative;
+  z-index: 0;
+}
+
+:host ::ng-deep .hidden-select .mat-mdc-select-value {
+  opacity: 0;
+}
+
+:host ::ng-deep .hidden-select .mat-mdc-select-arrow-wrapper {
+  opacity: 1;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-chip-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+mat-chip {
+  margin: 4px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+mat-chip:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>

@@ -9,6 +9,7 @@ import { LoginComponent } from './app/pages/login/login.component';
 import { FirstTimeUserComponent } from './app/pages/first-time-user/first-time-user.component';
 import { ProgramService } from './app/services/program.service';
 import { SessionComponent } from './app/pages/session/session.component';
+import { ExercisesComponent } from './app/pages/exercises/exercises/exercises.component';
 
 @Component({
     selector: 'app-root',
@@ -31,6 +32,14 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  {
+    path: 'exercises',
+    loadComponent: () => import('./app/pages/exercises/exercises/exercises.component').then(c => c.ExercisesComponent),
+  },
+  {
+    path: 'exercises/:id',
+    loadComponent: () => import('./app/pages/exercises/edit/edit.component').then(c => c.EditComponent),
+  },
   { path: 'program/:name', component: ProgramComponent },
   { path: 'home', component: HomeComponent },
   { path: 'first-time-user', component: FirstTimeUserComponent },
@@ -45,3 +54,4 @@ bootstrapApplication(App, {
     ProgramService,
   ]
 }).catch(err => console.error(err));
+

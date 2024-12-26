@@ -1,7 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Program } from '../../models/models';
 
 @Component({
     selector: 'app-program-list',
@@ -39,7 +38,7 @@ import { Program } from '../../models/models';
 })
 export class ProgramListComponent {
   constructor(private router: Router) {}
-  @Input() programs: Program[] = [];
+  @Input() programs: any[] = [];
   navigateToProgram(programName: string) {
     // Assuming you have a route for individual programs
     // Replace 'program' with the actual route path if different

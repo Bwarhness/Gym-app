@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Program } from '../../../models/models';
 
 @Component({
     selector: 'app-program',
@@ -11,7 +10,7 @@ import { Program } from '../../../models/models';
 })
 export class ProgramComponent implements OnInit {
   programId!: string;
-  program?: Program;
+  program?: any;
 
   constructor(
     private route: ActivatedRoute,

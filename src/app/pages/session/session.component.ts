@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Session } from '../../models/models';
+import { Session } from '../../../models/models';
 import { SessionService } from '../../services/session.service';
 
 @Component({
